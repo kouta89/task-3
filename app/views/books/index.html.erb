@@ -31,24 +31,23 @@
         </thead>
 
         <tbody>
-          <% @users.each do |user| %>
             <% @books.each do |book| %>
-              <tr>
-                <td>
-                  <%= link_to user_path(user.id) ,method: :get do %>
-                    <%= image_tag user.get_profile_image(80,80) %>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link_to book_path(book.id) ,method: :get do %>
-                    <%= book.title %>
-                  <% end %>
-                </td>
-                <td><%= book.body %></td>
-              </tr>
+            <tr>
+              <td>
+                <%= link_to user_path(book.user_id) ,method: :get do %>
+                  <%= image_tag book.user.get_profile_image(80,80) %>
+                <% end %>
+              </td>
+
+              <td>
+                <%= link_to book_path(book.id) ,method: :get do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
+              <td><%= book.body %></td>
+
+            </tr>
             <% end %>
-            <% break %>
-          <% end %>
         </tbody>
 
       </table>

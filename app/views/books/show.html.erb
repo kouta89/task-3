@@ -4,7 +4,7 @@
   <div class="row">
 
     <!--共通レイアウト-->
-    <%= render 'books/list', book: @book, user: current_user %>
+    <%= render 'books/list', book: @bookn, user: @user %>
 
     <!-- ユーザーの投稿情報-->
     <div class="col-md-8 offset-md-1">
@@ -15,11 +15,11 @@
         <tbody>
           <tr>
             <td>
-              <%= link_to books_path(@book.id) ,method: :get do %>
+              <%= link_to books_path(@book.user_id) ,method: :get do %>
                 <%= image_tag @user.get_profile_image(80,80) %>
               <% end %>
               <br>
-              <%= link_to books_path(@book.id) ,method: :get do %>
+              <%= link_to user_path(@book.user) ,method: :get do %>
                 <%= @book.user.name %>
               <% end %>
             </td>
